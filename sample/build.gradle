@@ -13,8 +13,8 @@ android {
     buildToolsVersion versions.buildTools
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
         applicationId "com.afollestad.materialdialogssample"
@@ -35,15 +35,15 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':commons')
+    compile project(':core')
+    compile project(':commons')
 
-    implementation 'com.android.support:gridlayout-v7:' + versions.supportLib
-    implementation 'com.android.support:appcompat-v7:' + versions.supportLib
-    implementation 'com.android.support:recyclerview-v7:' + versions.supportLib
+    compile 'com.android.support:gridlayout-v7:' + versions.supportLib
+    compile 'com.android.support:appcompat-v7:' + versions.supportLib
+    compile 'com.android.support:recyclerview-v7:' + versions.supportLib
 
-    implementation 'com.jakewharton:butterknife:' + versions.butterKnife
+    compile 'com.jakewharton:butterknife:' + versions.butterKnife
     annotationProcessor 'com.jakewharton:butterknife-compiler:' + versions.butterKnife
 
-    implementation 'com.facebook.stetho:stetho:1.4.2'
+    compile 'com.facebook.stetho:stetho:1.4.2'
 }
