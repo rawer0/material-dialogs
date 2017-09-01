@@ -13,8 +13,8 @@ android {
     buildToolsVersion versions.buildTools
 
     compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
         applicationId "com.afollestad.materialdialogssample"
@@ -22,6 +22,10 @@ android {
         targetSdkVersion versions.compileSdk
         versionCode versions.publishVersionCode
         versionName versions.publishVersion
+
+        jackOptions {
+            enabled true
+        }
     }
     lintOptions {
         abortOnError false
