@@ -1101,7 +1101,7 @@ public class MaterialDialog extends DialogBase
 
         protected final Context context;
         protected CharSequence title;
-        protected GravityEnum titleGravity = GravityEnum.START;
+        protected GravityEnum titleGravity = GravityEnum.CENTER;
         protected GravityEnum contentGravity = GravityEnum.START;
         protected GravityEnum btnStackedGravity = GravityEnum.END;
         protected GravityEnum itemsGravity = GravityEnum.START;

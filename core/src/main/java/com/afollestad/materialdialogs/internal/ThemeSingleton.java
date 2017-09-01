@@ -41,7 +41,7 @@ public class ThemeSingleton {
     public int btnSelectorNeutral = 0;
     @DrawableRes
     public int btnSelectorNegative = 0;
-    public GravityEnum titleGravity = GravityEnum.START;
+    public GravityEnum titleGravity = GravityEnum.CENTER;
     public GravityEnum contentGravity = GravityEnum.START;
     public GravityEnum btnStackedGravity = GravityEnum.END;
     public GravityEnum itemsGravity = GravityEnum.START;
