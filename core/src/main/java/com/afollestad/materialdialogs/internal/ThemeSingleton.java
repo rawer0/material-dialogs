@@ -14,7 +14,6 @@ import com.afollestad.materialdialogs.GravityEnum;
 public class ThemeSingleton {
 
     private static ThemeSingleton singleton;
-    public boolean darkTheme = false;
     @ColorInt
     public int titleColor = 0;
     @ColorInt

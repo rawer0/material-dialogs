@@ -5,7 +5,6 @@
     <attr name="md_divider" format="color"/>
 
     <!-- Accessible global theming attributes -->
-    <attr name="md_dark_theme" format="boolean"/>
     <attr name="md_background_color" format="color"/>
 
     <attr name="md_icon" format="reference"/>

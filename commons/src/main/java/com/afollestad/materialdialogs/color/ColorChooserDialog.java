@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringDef;
 import android.support.annotation.StringRes;
+import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -30,7 +31,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.Theme;
 import com.afollestad.materialdialogs.commons.R;
 import com.afollestad.materialdialogs.internal.MDTintHelper;
 import com.afollestad.materialdialogs.util.DialogUtils;
@@ -391,7 +391,7 @@ public class ColorChooserDialog extends DialogFragment
                   }
                 });
 
-    if (builder.theme != null) {
+    if (builder.theme != 0) {
       bd.theme(builder.theme);
     }
 
@@ -629,7 +629,7 @@ public class ColorChooserDialog extends DialogFragment
     @Nullable int[] colorsTop;
     @Nullable int[][] colorsSub;
     @Nullable String tag;
-    @Nullable Theme theme;
+    @Nullable int theme;
 
     boolean accentMode = false;
     boolean dynamicButtonColor = true;
@@ -662,7 +662,7 @@ public class ColorChooserDialog extends DialogFragment
     }
 
     @NonNull
-    public Builder theme(@NonNull Theme theme) {
+    public Builder theme(@StyleRes int theme) {
       this.theme = theme;
       return this;
     }

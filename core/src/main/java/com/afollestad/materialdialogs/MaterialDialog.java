@@ -20,6 +20,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.annotation.StyleRes;
 import android.support.annotation.UiThread;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.GridLayoutManager;
@@ -88,7 +89,7 @@ public class MaterialDialog extends DialogBase
 
     @SuppressLint("InflateParams")
     protected MaterialDialog(Builder builder) {
-        super(builder.context, DialogInit.getTheme(builder));
+        super(builder.context, builder.theme);
         handler = new Handler();
         this.builder = builder;
         final LayoutInflater inflater = LayoutInflater.from(builder.context);
@@ -1134,7 +1135,7 @@ public class MaterialDialog extends DialogBase
         protected ListCallbackMultiChoice listCallbackMultiChoice;
         protected boolean alwaysCallMultiChoiceCallback = false;
         protected boolean alwaysCallSingleChoiceCallback = false;
-        protected Theme theme = Theme.LIGHT;
+        protected int theme = R.style.MD_Classics;
         protected boolean cancelable = true;
         protected boolean canceledOnTouchOutside = true;
         protected float contentLineSpacingMultiplier = 1.2f;
@@ -1236,7 +1237,7 @@ public class MaterialDialog extends DialogBase
             // Set the default theme based on the Activity theme's primary color darkness (more white or more black)
             final int primaryTextColor =
                 DialogUtils.resolveColor(context, android.R.attr.textColorPrimary);
-            this.theme = DialogUtils.isColorDark(primaryTextColor) ? Theme.LIGHT : Theme.DARK;
+            this.theme = DialogUtils.isColorDark(primaryTextColor) ? R.style.MD_Classics : R.style.MD_Dark;
 
             // Load theme values from the ThemeSingleton if needed
             checkSingleton();
@@ -1302,9 +1303,6 @@ public class MaterialDialog extends DialogBase
                 return;
             }
             ThemeSingleton s = ThemeSingleton.get();
-            if (s.darkTheme) {
-                this.theme = Theme.DARK;
-            }
             if (s.titleColor != 0) {
                 this.titleColor = s.titleColor;
             }
@@ -2008,7 +2006,7 @@ public class MaterialDialog extends DialogBase
             return this;
         }
 
-        public Builder theme(@NonNull Theme theme) {
+        public Builder theme(@StyleRes int theme) {
             this.theme = theme;
             return this;
         }

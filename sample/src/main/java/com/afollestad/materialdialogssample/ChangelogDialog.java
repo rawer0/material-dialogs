@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.Theme;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -40,7 +40,7 @@ public class ChangelogDialog extends DialogFragment {
     }
     MaterialDialog dialog =
         new MaterialDialog.Builder(getActivity())
-            .theme(getArguments().getBoolean("dark_theme") ? Theme.DARK : Theme.LIGHT)
+            .theme(getArguments().getBoolean("dark_theme") ? R.style.MD_Dark : R.style.MD_Classics)
             .title(R.string.changelog)
             .customView(customView, false)
             .positiveText(android.R.string.ok)

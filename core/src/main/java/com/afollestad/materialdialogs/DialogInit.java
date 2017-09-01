@@ -6,8 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
 import android.support.annotation.UiThread;
 import android.text.InputType;
 import android.text.method.LinkMovementMethod;
@@ -41,15 +39,6 @@ import me.zhanghai.android.materialprogressbar.IndeterminateHorizontalProgressDr
  * @author Aidan Follestad (afollestad)
  */
 class DialogInit {
-
-    @StyleRes
-    static int getTheme(@NonNull MaterialDialog.Builder builder) {
-        boolean darkTheme =
-            DialogUtils.resolveBoolean(
-                builder.context, R.attr.md_dark_theme, builder.theme == Theme.DARK);
-        builder.theme = darkTheme ? Theme.DARK : Theme.LIGHT;
-        return darkTheme ? R.style.MD_Dark : R.style.MD_Light;
-    }
 
     @LayoutRes
     static int getInflateLayout(MaterialDialog.Builder builder) {
