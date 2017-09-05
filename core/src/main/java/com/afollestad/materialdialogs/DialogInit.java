@@ -340,6 +340,8 @@ class DialogInit {
         // Setup input dialog stuff if needed
         setupInputDialog(dialog);
 
+        dialog.view.setTopDivederVisibility(builder.topDividerVisible);
+        dialog.view.setBottomDivederVisibility(builder.bottomDividerVisible);
         // Setup custom views
         if (builder.customView != null) {
             ((MDRootLayout) dialog.view.findViewById(R.id.md_root)).noTitleNoPadding();

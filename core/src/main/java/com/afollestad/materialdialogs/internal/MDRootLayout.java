@@ -22,6 +22,7 @@ import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.R;
 import com.afollestad.materialdialogs.StackingBehavior;
 import com.afollestad.materialdialogs.util.DialogUtils;
+import com.afollestad.materialdialogs.util.DividerEnum;
 
 /**
  * @author Kevin Barry (teslacoil) 4/02/2015 This is the top level view for all MaterialDialogs It
@@ -58,6 +59,9 @@ public class MDRootLayout extends ViewGroup {
     private ViewTreeObserver.OnScrollChangedListener topOnScrollChangedListener;
     private ViewTreeObserver.OnScrollChangedListener bottomOnScrollChangedListener;
     private int dividerWidth;
+
+    private DividerEnum topDividerVisible = DividerEnum.AUTO;
+    private DividerEnum bottomDividerVisible = DividerEnum.AUTO;
 
     public MDRootLayout(Context context) {
         super(context);
@@ -199,6 +203,14 @@ public class MDRootLayout extends ViewGroup {
         noTitleNoPadding = true;
     }
 
+    public void setTopDivederVisibility(DividerEnum state) {
+        topDividerVisible = state;
+    }
+
+    public void setBottomDivederVisibility(DividerEnum state) {
+        bottomDividerVisible = state;
+    }
+
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
@@ -314,12 +326,15 @@ public class MDRootLayout extends ViewGroup {
         super.onDraw(canvas);
 
         if (content != null) {
-            if (drawTopDivider) {
+            if (topDividerVisible == DividerEnum.GONE) {
+                //nothing
+            } else if (topDividerVisible == DividerEnum.VISIBLE || drawTopDivider) {
                 int y = content.getTop();
                 canvas.drawRect(0, y - dividerWidth, getMeasuredWidth(), y, dividerPaint);
             }
-
-            if (drawBottomDivider) {
+            if (bottomDividerVisible == DividerEnum.GONE) {
+                //nothing
+            } else if (bottomDividerVisible == DividerEnum.VISIBLE || drawBottomDivider) {
                 int y = content.getBottom();
                 canvas.drawRect(0, y, getMeasuredWidth(), y + dividerWidth, dividerPaint);
             }

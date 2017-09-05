@@ -49,6 +49,7 @@ import com.afollestad.materialdialogs.internal.MDRootLayout;
 import com.afollestad.materialdialogs.internal.MDTintHelper;
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
 import com.afollestad.materialdialogs.util.DialogUtils;
+import com.afollestad.materialdialogs.util.DividerEnum;
 import com.afollestad.materialdialogs.util.RippleHelper;
 import com.afollestad.materialdialogs.util.TypefaceHelper;
 
@@ -1190,6 +1191,9 @@ public class MaterialDialog extends DialogBase
         protected boolean widgetColorSet = false;
         protected boolean dividerColorSet = false;
 
+        protected DividerEnum topDividerVisible = DividerEnum.AUTO;
+        protected DividerEnum bottomDividerVisible = DividerEnum.AUTO;
+
         @DrawableRes
         protected int listSelector;
         @DrawableRes
@@ -1966,6 +1970,17 @@ public class MaterialDialog extends DialogBase
 
         public Builder dividerColorAttr(@AttrRes int colorAttr) {
             return dividerColor(DialogUtils.resolveColor(this.context, colorAttr));
+        }
+
+
+        public Builder topDividerVisible(@Nullable DividerEnum visible) {
+            this.topDividerVisible = visible;
+            return this;
+        }
+
+        public Builder bottomDividerVisible(@Nullable DividerEnum visible) {
+            this.bottomDividerVisible = visible;
+            return this;
         }
 
         public Builder backgroundColor(@ColorInt int color) {
