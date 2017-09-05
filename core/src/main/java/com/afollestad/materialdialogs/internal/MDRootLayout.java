@@ -41,9 +41,8 @@ public class MDRootLayout extends ViewGroup {
     private boolean drawBottomDivider = false;
     private StackingBehavior stackBehavior = StackingBehavior.ADAPTIVE;
     private boolean isStacked = false;
-    private boolean useFullPadding = true;
     private boolean reducePaddingNoTitleNoButtons;
-    private boolean noTitleNoPadding;
+    private boolean noTitleNoPadding = true;
 
     private int noTitlePaddingFull;
     private int buttonPaddingFull;
@@ -228,7 +227,6 @@ public class MDRootLayout extends ViewGroup {
             height = maxHeight;
         }
 
-        useFullPadding = true;
         boolean hasButtons = false;
 
         final boolean stacked;
@@ -271,11 +269,11 @@ public class MDRootLayout extends ViewGroup {
         int minPadding = 0;
         if (hasButtons) {
             if (isStacked) {
-                availableHeight -= stackedHeight;
+                availableHeight -= (stackedHeight + buttonPaddingFull);
                 fullPadding += 2 * buttonPaddingFull;
                 minPadding += 2 * buttonPaddingFull;
             } else {
-                availableHeight -= buttonBarHeight;
+                availableHeight -= (buttonBarHeight + buttonPaddingFull);
                 fullPadding += 2 * buttonPaddingFull;
         /* No minPadding */
             }
@@ -295,18 +293,15 @@ public class MDRootLayout extends ViewGroup {
         if (isVisible(content)) {
             content.measure(
                 MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(availableHeight - minPadding, MeasureSpec.AT_MOST));
+                MeasureSpec.makeMeasureSpec(availableHeight - minPadding - (hasButtons ? buttonPaddingFull : 0), MeasureSpec.AT_MOST));
 
             if (content.getMeasuredHeight() <= availableHeight - fullPadding) {
-                if (!reducePaddingNoTitleNoButtons || isVisible(titleBar) || hasButtons) {
-                    useFullPadding = true;
+                if (!reducePaddingNoTitleNoButtons || hasButtons) {
                     availableHeight -= content.getMeasuredHeight() + fullPadding;
                 } else {
-                    useFullPadding = false;
                     availableHeight -= content.getMeasuredHeight() + minPadding;
                 }
             } else {
-                useFullPadding = false;
                 availableHeight = 0;
             }
         }
@@ -337,7 +332,7 @@ public class MDRootLayout extends ViewGroup {
             int height = titleBar.getMeasuredHeight();
             titleBar.layout(l, t, r, t + height);
             t += height;
-        } else if (!noTitleNoPadding && useFullPadding) {
+        } else if (!noTitleNoPadding) {
             t += noTitlePaddingFull;
         }
 
@@ -356,9 +351,7 @@ public class MDRootLayout extends ViewGroup {
         } else {
             int barTop;
             int barBottom = b;
-            if (useFullPadding) {
-                barBottom -= buttonPaddingFull;
-            }
+            barBottom -= buttonPaddingFull;
             barTop = barBottom - buttonBarHeight;
       /* START:
         Neutral   Negative  Positive
