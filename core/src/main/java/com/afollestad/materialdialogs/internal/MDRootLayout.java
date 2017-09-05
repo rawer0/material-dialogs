@@ -374,63 +374,35 @@ public class MDRootLayout extends ViewGroup {
             int offset = buttonHorizontalEdgeMargin;
 
       /* Used with CENTER gravity */
-            int neutralLeft = -1;
-            int neutralRight = -1;
-
             if (isVisible(buttons[INDEX_POSITIVE])) {
                 int bl, br;
                 if (buttonGravity == GravityEnum.END) {
                     bl = l + offset;
-                    br = bl + buttons[INDEX_POSITIVE].getMeasuredWidth();
+                    br = (r - l - offset) / 2;
                 } else {
-          /* START || CENTER */
                     br = r - offset;
-                    bl = br - buttons[INDEX_POSITIVE].getMeasuredWidth();
-                    neutralRight = bl;
+                    bl = (r - l + offset) / 2;
                 }
                 buttons[INDEX_POSITIVE].layout(bl, barTop, br, barBottom);
-                offset += buttons[INDEX_POSITIVE].getMeasuredWidth();
             }
 
             if (isVisible(buttons[INDEX_NEGATIVE])) {
                 int bl, br;
                 if (buttonGravity == GravityEnum.END) {
-                    bl = l + offset;
-                    br = bl + buttons[INDEX_NEGATIVE].getMeasuredWidth();
-                } else if (buttonGravity == GravityEnum.START) {
                     br = r - offset;
-                    bl = br - buttons[INDEX_NEGATIVE].getMeasuredWidth();
+                    bl = (r - l + offset) / 2;
                 } else {
-          /* CENTER */
-                    bl = l + buttonHorizontalEdgeMargin;
-                    br = bl + buttons[INDEX_NEGATIVE].getMeasuredWidth();
-                    neutralLeft = br;
+                    bl = l + offset;
+                    br = (r - l - offset) / 2;
                 }
                 buttons[INDEX_NEGATIVE].layout(bl, barTop, br, barBottom);
             }
 
             if (isVisible(buttons[INDEX_NEUTRAL])) {
-                int bl, br;
-                if (buttonGravity == GravityEnum.END) {
-                    br = r - buttonHorizontalEdgeMargin;
-                    bl = br - buttons[INDEX_NEUTRAL].getMeasuredWidth();
-                } else if (buttonGravity == GravityEnum.START) {
-                    bl = l + buttonHorizontalEdgeMargin;
-                    br = bl + buttons[INDEX_NEUTRAL].getMeasuredWidth();
-                } else {
-          /* CENTER */
-                    if (neutralLeft == -1 && neutralRight != -1) {
-                        neutralLeft = neutralRight - buttons[INDEX_NEUTRAL].getMeasuredWidth();
-                    } else if (neutralRight == -1 && neutralLeft != -1) {
-                        neutralRight = neutralLeft + buttons[INDEX_NEUTRAL].getMeasuredWidth();
-                    } else if (neutralRight == -1) {
-                        neutralLeft = (r - l) / 2 - buttons[INDEX_NEUTRAL].getMeasuredWidth() / 2;
-                        neutralRight = neutralLeft + buttons[INDEX_NEUTRAL].getMeasuredWidth();
-                    }
-                    bl = neutralLeft;
-                    br = neutralRight;
-                }
+                buttons[INDEX_POSITIVE].setVisibility(GONE);
+                buttons[INDEX_NEGATIVE].setVisibility(GONE);
 
+                int bl = l + offset, br = r - offset;
                 buttons[INDEX_NEUTRAL].layout(bl, barTop, br, barBottom);
             }
         }
