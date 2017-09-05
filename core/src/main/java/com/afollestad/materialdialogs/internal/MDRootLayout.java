@@ -282,16 +282,16 @@ public class MDRootLayout extends ViewGroup {
         if (hasButtons) {
             if (isStacked) {
                 availableHeight -= (stackedHeight + buttonPaddingFull);
-                fullPadding += 2 * buttonPaddingFull;
-                minPadding += 2 * buttonPaddingFull;
+                fullPadding += buttonPaddingFull;
+                minPadding += buttonPaddingFull;
             } else {
                 availableHeight -= (buttonBarHeight + buttonPaddingFull);
-                fullPadding += 2 * buttonPaddingFull;
+                fullPadding += buttonPaddingFull;
         /* No minPadding */
             }
         } else {
       /* Content has 8dp, we add 16dp and get 24dp, the frame margin */
-            fullPadding += 2 * buttonPaddingFull;
+            fullPadding += buttonPaddingFull;
         }
 
         if (isVisible(titleBar)) {
@@ -305,7 +305,7 @@ public class MDRootLayout extends ViewGroup {
         if (isVisible(content)) {
             content.measure(
                 MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(availableHeight - minPadding - (hasButtons ? buttonPaddingFull : 0), MeasureSpec.AT_MOST));
+                MeasureSpec.makeMeasureSpec(availableHeight - (hasButtons ? buttonPaddingFull : 0), MeasureSpec.AT_MOST));
 
             if (content.getMeasuredHeight() <= availableHeight - fullPadding) {
                 if (!reducePaddingNoTitleNoButtons || hasButtons) {
