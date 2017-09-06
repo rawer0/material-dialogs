@@ -46,6 +46,7 @@ public class MDRootLayout extends ViewGroup {
     private boolean noTitleNoPadding = true;
 
     private int noTitlePaddingFull;
+    private int minTitleHeight;
     private int buttonPaddingFull;
     private int buttonBarHeight;
 
@@ -183,6 +184,7 @@ public class MDRootLayout extends ViewGroup {
             a.getBoolean(R.styleable.MDRootLayout_md_reduce_padding_no_title_no_buttons, true);
         a.recycle();
 
+        minTitleHeight = r.getDimensionPixelSize(R.dimen.md_title_min);
         noTitlePaddingFull = r.getDimensionPixelSize(R.dimen.md_notitle_vertical_padding);
         buttonPaddingFull = r.getDimensionPixelSize(R.dimen.md_button_frame_vertical_padding);
 
@@ -200,7 +202,7 @@ public class MDRootLayout extends ViewGroup {
     }
 
     public void noTitleNoPadding() {
-        noTitleNoPadding = true;
+        noTitleNoPadding = false;
     }
 
     public void setTopDivederVisibility(DividerEnum state) {
@@ -300,6 +302,8 @@ public class MDRootLayout extends ViewGroup {
             availableHeight -= titleBar.getMeasuredHeight();
         } else if (!noTitleNoPadding) {
             fullPadding += noTitlePaddingFull;
+        } else if (hasButtons) {
+            availableHeight -= minTitleHeight;
         }
 
         if (isVisible(content)) {
@@ -349,6 +353,8 @@ public class MDRootLayout extends ViewGroup {
             t += height;
         } else if (!noTitleNoPadding) {
             t += noTitlePaddingFull;
+        } else if (isVisible(buttons[INDEX_POSITIVE]) || isVisible(buttons[INDEX_NEGATIVE]) || isVisible(buttons[INDEX_NEUTRAL])) {
+            t += minTitleHeight;
         }
 
         if (isVisible(content)) {
