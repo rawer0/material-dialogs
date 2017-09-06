@@ -26,7 +26,6 @@
             android:layout_marginLeft="@dimen/md_dialog_frame_margin"
             android:layout_marginRight="@dimen/md_dialog_frame_margin"
             android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif"
             android:textSize="@dimen/md_content_textsize"
             tools:ignore="UnusedAttribute"
             tools:text="Message"/>
@@ -54,7 +53,6 @@
                 android:layout_alignEnd="@android:id/input"
                 android:layout_alignRight="@android:id/input"
                 android:layout_below="@android:id/input"
-                android:fontFamily="sans-serif"
                 android:gravity="end"
                 android:minWidth="48dp"
                 android:paddingEnd="4dp"
