@@ -34,7 +34,6 @@ dependencies {
     compile 'com.android.support:support-annotations:' + versions.supportLib
     compile 'com.android.support:appcompat-v7:' + versions.supportLib
     compile 'com.android.support:recyclerview-v7:' + versions.supportLib
-    compile 'me.zhanghai.android.materialprogressbar:library:' + versions.mdProgressBar
 }
 
 apply from: 'https://raw.githubusercontent.com/afollestad/aidanfollestad.com/master/android-lib-release.gradle'

@@ -28,10 +28,6 @@ import com.afollestad.materialdialogs.util.DialogUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import me.zhanghai.android.materialprogressbar.HorizontalProgressDrawable;
-import me.zhanghai.android.materialprogressbar.IndeterminateCircularProgressDrawable;
-import me.zhanghai.android.materialprogressbar.IndeterminateHorizontalProgressDrawable;
-
 /**
  * Used by MaterialDialog while initializing the dialog. Offloads some of the code to make the main
  * class cleaner and easier to read/maintain.
@@ -444,26 +440,26 @@ class DialogInit {
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                if (builder.indeterminateProgress) {
-                    if (builder.indeterminateIsHorizontalProgress) {
-                        IndeterminateHorizontalProgressDrawable d =
-                            new IndeterminateHorizontalProgressDrawable(builder.getContext());
-                        d.setTint(builder.widgetColor);
-                        dialog.progressBar.setProgressDrawable(d);
-                        dialog.progressBar.setIndeterminateDrawable(d);
-                    } else {
-                        IndeterminateCircularProgressDrawable d =
-                            new IndeterminateCircularProgressDrawable(builder.getContext());
-                        d.setTint(builder.widgetColor);
-                        dialog.progressBar.setProgressDrawable(d);
-                        dialog.progressBar.setIndeterminateDrawable(d);
-                    }
-                } else {
-                    HorizontalProgressDrawable d = new HorizontalProgressDrawable(builder.getContext());
-                    d.setTint(builder.widgetColor);
-                    dialog.progressBar.setProgressDrawable(d);
-                    dialog.progressBar.setIndeterminateDrawable(d);
-                }
+//                if (builder.indeterminateProgress) {
+//                    if (builder.indeterminateIsHorizontalProgress) {
+////                        IndeterminateHorizontalProgressDrawable d =
+////                            new IndeterminateHorizontalProgressDrawable(builder.getContext());
+////                        d.setTint(builder.widgetColor);
+//                        dialog.progressBar.setProgressDrawable(android.R.style.Widget_DeviceDefault_Light_ProgressBar_Horizontal);
+//                        dialog.progressBar.setIndeterminateDrawable(d);
+//                    } else {
+//                        IndeterminateCircularProgressDrawable d =
+//                            new IndeterminateCircularProgressDrawable(builder.getContext());
+//                        d.setTint(builder.widgetColor);
+//                        dialog.progressBar.setProgressDrawable(d);
+//                        dialog.progressBar.setIndeterminateDrawable(d);
+//                    }
+//                } else {
+//                    HorizontalProgressDrawable d = new HorizontalProgressDrawable(builder.getContext());
+//                    d.setTint(builder.widgetColor);
+//                    dialog.progressBar.setProgressDrawable(d);
+//                    dialog.progressBar.setIndeterminateDrawable(d);
+//                }
             } else {
                 MDTintHelper.setTint(dialog.progressBar, builder.widgetColor);
             }

@@ -16,11 +16,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:paddingBottom="@dimen/md_button_padding_frame_side"
         android:layout_height="wrap_content">
 
         <ProgressBar
             android:id="@android:id/progress"
-            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
