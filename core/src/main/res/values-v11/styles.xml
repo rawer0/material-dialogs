@@ -19,9 +19,6 @@
         <item name="md_neutral_color">@android:color/white</item>
         <item name="md_negative_color">@color/md_text_gray</item>
 
-        <item name="android:actionModeBackground">@color/primary_material_dark</item>
-        <item name="android:actionModeCloseDrawable">@drawable/md_nav_back</item>
-
         <item name="android:windowAnimationStyle">@style/MD_WindowAnimation</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
