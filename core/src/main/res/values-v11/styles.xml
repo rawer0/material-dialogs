@@ -7,7 +7,6 @@
 
         <item name="md_divider">@color/md_divider_black</item>
         <item name="md_list_selector">@drawable/md_selector</item>
-        <item name="md_btn_stacked_selector">@drawable/md_selector</item>
         <item name="md_btn_positive_selector">@drawable/md_btn_selector_classics_blue</item>
         <item name="md_btn_neutral_selector">@drawable/md_btn_selector_classics_blue</item>
         <item name="md_btn_negative_selector">@drawable/md_btn_selector_classics</item>
