@@ -289,11 +289,9 @@ public class MDRootLayout extends ViewGroup {
             } else {
                 availableHeight -= (buttonBarHeight + buttonPaddingFull);
                 fullPadding += buttonPaddingFull;
-        /* No minPadding */
             }
         } else {
-      /* Content has 8dp, we add 16dp and get 24dp, the frame margin */
-            fullPadding += buttonPaddingFull;
+//            fullPadding += buttonPaddingFull;
         }
 
         if (isVisible(titleBar)) {
