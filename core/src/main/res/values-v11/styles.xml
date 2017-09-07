@@ -13,6 +13,7 @@
 
         <item name="md_background_color">@color/md_bg_gray</item>
 
+        <item name="md_title_color">@color/title_color</item>
         <item name="md_content_color">@color/md_text_gray</item>
         <item name="md_positive_color">@android:color/white</item>
         <item name="md_neutral_color">@android:color/white</item>

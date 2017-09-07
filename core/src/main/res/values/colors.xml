@@ -3,7 +3,7 @@
 
     <color name="md_btn_selected">#33969696</color>
 
-    <color name="md_divider_black">#10000000</color>
+    <color name="md_divider_black">#d8d8d8</color>
 
     <color name="md_material_blue_600">#2196F3</color>
 
@@ -13,5 +13,6 @@
 
     <color name="md_bg_gray">#F2F2F2</color>
 
+    <color name="title_color">#333333</color>
 
 </resources>
