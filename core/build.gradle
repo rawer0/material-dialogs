@@ -1,22 +1,14 @@
 apply plugin: 'com.android.library'
-apply from: '../dependencies.gradle'
-
-ext {
-    PUBLISH_GROUP_ID = 'com.afollestad.material-dialogs'
-    PUBLISH_ARTIFACT_ID = 'core'
-    PUBLISH_VERSION = versions.publishVersion
-}
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.compileSdk
-        versionCode versions.publishVersionCode
-        versionName versions.publishVersion
-        consumerProguardFiles 'progress-proguard.txt'
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName '1.0'
     }
     lintOptions {
         abortOnError false
@@ -31,9 +23,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-annotations:' + versions.supportLib
-    compile 'com.android.support:appcompat-v7:' + versions.supportLib
-    compile 'com.android.support:recyclerview-v7:' + versions.supportLib
+    compile 'com.android.support:support-annotations:26.0.1'
+    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile 'com.android.support:recyclerview-v7:26.0.1'
 }
-
-apply from: 'https://raw.githubusercontent.com/afollestad/aidanfollestad.com/master/android-lib-release.gradle'
