@@ -640,7 +640,6 @@ public class MainActivity extends AppCompatActivity
         .btnSelector(R.drawable.md_btn_selector_custom, DialogAction.POSITIVE)
         .positiveColor(Color.WHITE)
         .negativeColorAttr(android.R.attr.textColorSecondaryInverse)
-        .theme(R.style.MD_Dark)
         .show();
   }
 

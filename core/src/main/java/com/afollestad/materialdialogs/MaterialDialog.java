@@ -1238,11 +1238,6 @@ public class MaterialDialog extends DialogBase
             this.progressPercentFormat = NumberFormat.getPercentInstance();
             this.progressNumberFormat = "%1d/%2d";
 
-            // Set the default theme based on the Activity theme's primary color darkness (more white or more black)
-            final int primaryTextColor =
-                DialogUtils.resolveColor(context, android.R.attr.textColorPrimary);
-            this.theme = DialogUtils.isColorDark(primaryTextColor) ? R.style.MD_Classics : R.style.MD_Dark;
-
             // Load theme values from the ThemeSingleton if needed
             checkSingleton();
 

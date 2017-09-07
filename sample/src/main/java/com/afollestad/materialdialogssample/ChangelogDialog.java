@@ -40,7 +40,6 @@ public class ChangelogDialog extends DialogFragment {
     }
     MaterialDialog dialog =
         new MaterialDialog.Builder(getActivity())
-            .theme(getArguments().getBoolean("dark_theme") ? R.style.MD_Dark : R.style.MD_Classics)
             .title(R.string.changelog)
             .customView(customView, false)
             .positiveText(android.R.string.ok)
